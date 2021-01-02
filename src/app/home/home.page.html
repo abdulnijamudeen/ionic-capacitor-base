@@ -56,22 +56,17 @@
     </ion-header>
     <ion-content class="ion-padding">
 
-      <ion-segment color="success" value="today" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="today">
-          <ion-label>Today</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="week">
-          <ion-label>This Week</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+     
+
+      <router-outlet></router-outlet>
 
       <ion-tabs>
         <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="schedule">
+          <ion-tab-button tab="trending-movies">
             <ion-icon name="film-outline"></ion-icon>
             <ion-label>Trending Movies</ion-label>
           </ion-tab-button>
-          <ion-tab-button tab="speakers">
+          <ion-tab-button tab="trending-tvshows">
             <ion-icon name="desktop-outline"></ion-icon>
             <ion-label>Trending TV Shows</ion-label>
           </ion-tab-button>

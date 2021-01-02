@@ -9,8 +9,5 @@ export class HomePage {
 
   constructor() {}
 
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
-  }
 
 }
