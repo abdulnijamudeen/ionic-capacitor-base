@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TmdbService } from '../tmdb.service';
 
 @Component({
   templateUrl: './trending-tvshows.page.html',
@@ -6,14 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrendingTvshowsPage implements OnInit {
 
-  constructor() { }
+  segment: 'today' | 'week' = 'today';
+  todayShows: any[] = [];
+  weekShows: any[] = [];
+
+  constructor(private tmdbService: TmdbService) { }
 
   ngOnInit(): void {
+    this.getTrendingMovies('today');
   }
 
-
   segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
+    if (this.segment === 'today' && this.todayShows.length === 0) {
+      this.getTrendingMovies(this.segment);
+    }
+
+    if (this.segment === 'week' && this.weekShows.length === 0) {
+      this.getTrendingMovies(this.segment);
+    }
+
+  }
+
+  getTrendingMovies(time: string) {
+    this.tmdbService.getTrending('tv', time).subscribe(res => {
+      if (time === 'today') {
+        this.todayShows = res.results;
+      }
+      if (time === 'week') {
+        this.weekShows = res.results;
+      }
+    });
   }
 
 }

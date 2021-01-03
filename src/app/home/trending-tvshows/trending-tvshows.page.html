@@ -1,12 +1,33 @@
-<div>
-    <ion-segment color="primary" value="today" (ionChange)="segmentChanged($event)">
+<ion-header>
+    <ion-segment color="primary" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
         <ion-segment-button value="today">
-          <ion-label>Today</ion-label>
+            <ion-label>Today</ion-label>
         </ion-segment-button>
         <ion-segment-button value="week">
             <ion-label>This Week</ion-label>
         </ion-segment-button>
     </ion-segment>
-    Today TV
-</div>
-  
+</ion-header>
+<ion-content>
+    <ion-list *ngIf="segment == 'today'">
+        <ion-card *ngFor="let item of todayShows" ion-item>
+            <ion-card-header>
+                <ion-img [src]="item.poster_path"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+                name
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+    <ion-list *ngIf="segment == 'week'">
+        <ion-card *ngFor="let item of weekShows" ion-item>
+            <ion-card-header>
+                <ion-img [src]="item.poster_path"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+                name
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+</ion-content>
