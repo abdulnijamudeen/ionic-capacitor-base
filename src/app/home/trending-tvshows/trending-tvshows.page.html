@@ -9,6 +9,12 @@
     </ion-segment>
 </ion-header>
 <ion-content>
-    <app-movie-card [movies]="todayShows" [imgUrl]="imgUrl" [imgSize]="imgSize" *ngIf="segment == 'day'"></app-movie-card>
-    <app-movie-card [movies]="weekShows" [imgUrl]="imgUrl" [imgSize]="imgSize" *ngIf="segment == 'week'"></app-movie-card>
+    <ion-slides  #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+        <ion-slide>
+          <app-movie-card [movies]="todayShows" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
+        </ion-slide>
+        <ion-slide>
+          <app-movie-card [movies]="weekShows" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
+        </ion-slide>
+      </ion-slides>
 </ion-content>
