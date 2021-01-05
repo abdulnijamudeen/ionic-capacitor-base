@@ -1,0 +1,10 @@
+<ion-card ion-item button="true" *ngFor="let item of movies">
+    <ion-card-header class="p-0">
+        <ion-img [src]="imgUrl + imgSize + item.poster_path"></ion-img>
+    </ion-card-header>
+    <ion-card-content class="py-2">
+        <ion-card-title class="font-weight-bold">
+            {{item.media_type === 'movie'? item.title : item.name}}
+        </ion-card-title>
+    </ion-card-content>
+</ion-card>

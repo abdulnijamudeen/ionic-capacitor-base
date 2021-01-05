@@ -8,7 +8,7 @@ import { TmdbService } from '../tmdb.service';
 })
 export class TrendingMoviesPage implements OnInit {
 
-  segment: 'today' | 'week' = 'today';
+  segment: 'day' | 'week' = 'day';
   todayMovies: any[] = [];
   weekMovies: any[] = [];
   imgUrl = '';
@@ -19,13 +19,13 @@ export class TrendingMoviesPage implements OnInit {
   ngOnInit(): void {
     const config = this.appService.tmdbConfig;
     this.imgUrl = config.images.secure_base_url;
-    this.imgSize = config.images.still_sizes[0];
+    this.imgSize = config.images.still_sizes[1];
 
-    this.getTrendingMovies('today');
+    this.getTrendingMovies('day');
   }
 
   segmentChanged(ev: any) {
-    if (this.segment === 'today' && this.todayMovies.length === 0) {
+    if (this.segment === 'day' && this.todayMovies.length === 0) {
       this.getTrendingMovies(this.segment);
     }
 
@@ -37,7 +37,7 @@ export class TrendingMoviesPage implements OnInit {
 
   getTrendingMovies(time: string) {
     this.tmdbService.getTrending('movie', time).subscribe(res => {
-      if (time === 'today') {
+      if (time === 'day') {
         this.todayMovies = res.results;
       }
       if (time === 'week') {

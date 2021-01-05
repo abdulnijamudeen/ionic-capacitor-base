@@ -1,6 +1,6 @@
 <ion-header>
     <ion-segment color="success" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="today">
+        <ion-segment-button value="day">
             <ion-label>Today</ion-label>
         </ion-segment-button>
         <ion-segment-button value="week">
@@ -9,25 +9,6 @@
     </ion-segment>
 </ion-header>
 <ion-content>
-    <ion-list *ngIf="segment == 'today'">
-        <ion-card *ngFor="let item of todayMovies" ion-item button="true">
-            <ion-card-header>
-                <ion-img [src]="imgUrl + imgSize + item.poster_path"></ion-img>
-            </ion-card-header>
-            <ion-card-content>
-                {{item.title}}
-            </ion-card-content>
-        </ion-card>
-    </ion-list>
-
-    <ion-list *ngIf="segment == 'week'">
-        <ion-card *ngFor="let item of weekMovies" ion-item  button="true">
-            <ion-card-header>
-                <ion-img [src]="item.poster_path"></ion-img>
-            </ion-card-header>
-            <ion-card-content>
-                name
-            </ion-card-content>
-        </ion-card>
-    </ion-list>
+    <app-movie-card [movies]="todayMovies" [imgUrl]="imgUrl" [imgSize]="imgSize" *ngIf="segment == 'day'"></app-movie-card>
+    <app-movie-card [movies]="weekMovies" [imgUrl]="imgUrl" [imgSize]="imgSize" *ngIf="segment == 'week'"></app-movie-card>
 </ion-content>

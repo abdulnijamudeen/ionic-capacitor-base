@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { TrendingMoviesPage } from './trending-movies/trending-movies.page';
 import { TmdbService } from './tmdb.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     HomePage,
     TrendingMoviesPage,
-    TrendingTvshowsPage
+    TrendingTvshowsPage,
+    MovieCardComponent
   ],
   providers: [
     TmdbService
