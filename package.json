@@ -10,6 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "ionicserve": "ionic serve",
     "capacitorRunAndroidStudio": "ionic capacitor run android",
     "capacitorLiveAndroidStudio": "ionic cap run android -l --external"
   },

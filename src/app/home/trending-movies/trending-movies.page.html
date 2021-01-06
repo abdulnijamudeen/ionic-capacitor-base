@@ -1,20 +1,20 @@
 <ion-header>
-    <ion-segment color="success" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="day">
-            <ion-label>Today</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="week">
-            <ion-label>This Week</ion-label>
-        </ion-segment-button>
-    </ion-segment>
+  <ion-segment color="success" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="day">
+      <ion-label>Today</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>This Week</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 <ion-content>
-    <ion-slides  #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
-        <ion-slide>
-          <app-movie-card [movies]="todayMovies" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
-        </ion-slide>
-        <ion-slide>
-          <app-movie-card [movies]="weekMovies" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
-        </ion-slide>
-      </ion-slides>
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+    <ion-slide>
+      <app-movie-card [movies]="todayMovies" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
+    </ion-slide>
+    <ion-slide>
+      <app-movie-card [movies]="weekMovies" [imgUrl]="imgUrl" [imgSize]="imgSize"></app-movie-card>
+    </ion-slide> 
+  </ion-slides>
 </ion-content>
