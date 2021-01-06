@@ -49,6 +49,7 @@ export class TrendingTvshowsPage implements OnInit {
   }
 
   getTrendingMovies() {
+    this.ionLoader.showLoader();
     if (this.segment === 'day') {
       this.tmdbService.getTrending('tv', this.segment)
       .subscribe(res => { this.todayShows = res.results; this.ionLoader.hideLoader(); },
