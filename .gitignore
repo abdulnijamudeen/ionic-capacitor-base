@@ -29,3 +29,8 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+android/.project
+android/.settings/org.eclipse.buildship.core.prefs
+android/app/.classpath
+android/app/.settings/org.eclipse.buildship.core.prefs
+android/app/.project
