@@ -14,19 +14,19 @@
             <ion-img [src]="'https://img.icons8.com/bubbles/2x/graduation-cap.png'"></ion-img>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <h2>School Portal</h2>
+            <h3>School Portal <ion-badge color="danger">Coming soon</ion-badge></h3>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="6">
-        <ion-card button="true">
+        <ion-card button="true" (click)="onStudentPortalClick()">
           <ion-card-header>
             <ion-img [src]="'https://img.pngio.com/animated-student-group-with-81-items-animated-student-png-512_512.png'"></ion-img>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <h2>Student Portal</h2>
+            <h3>Student Portal</h3>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -36,7 +36,7 @@
             <ion-img [src]="'https://cdn1.iconfinder.com/data/icons/japanese-man-professions/512/03-512.png'"></ion-img>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <h2>Teacher Portal</h2>
+            <h3>Teacher Portal <ion-badge color="success">New</ion-badge></h3>
           </ion-card-content>
         </ion-card>
       </ion-col>

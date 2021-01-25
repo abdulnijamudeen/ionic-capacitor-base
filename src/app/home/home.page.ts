@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Plugins } from '@capacitor/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 const { App } = Plugins;
 
 @Component({
@@ -12,7 +13,11 @@ const { App } = Plugins;
 })
 export class HomePage {
 
-  constructor(public alertController: AlertController, private bottomSheet: MatBottomSheet) { }
+  constructor(
+    public alertController: AlertController,
+    private bottomSheet: MatBottomSheet,
+    public router: Router
+    ) { }
 
   onExitClick() {
     this.alertController.create({
@@ -46,9 +51,16 @@ export class HomePage {
   }
 
   onSchoolPortalClick() {
-    this.bottomSheet.open(TeacherLoginComponent)
-      .afterDismissed().subscribe((loginForm) => {
-        // console.log(loginForm);
-      });
+    this.alertController.create({
+      header: 'Coming Soon!',
+      message: 'School Portal feature is under processing...',
+      buttons: ['Okay']
+    }).then((res) => {
+      res.present();
+    });
+  }
+
+  onStudentPortalClick() {
+    this.router.navigate(['student-portal']);
   }
 }
