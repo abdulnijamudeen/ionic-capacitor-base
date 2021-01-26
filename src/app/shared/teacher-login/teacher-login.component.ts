@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Platform } from '@ionic/angular';
+import { LoginForm } from 'src/app/model/LoginForm';
 
 @Component({
   selector: 'app-teacher-login',
@@ -16,7 +17,9 @@ export class TeacherLoginComponent implements OnInit {
     private platform: Platform
     ) { 
       this.platform.backButton.subscribeWithPriority(10, () => {
-        this.bottomSheetRef.dismiss();
+        this.bottomSheetRef.dismiss({
+          status: 'back',
+        });
       });
     }
 
@@ -24,12 +27,16 @@ export class TeacherLoginComponent implements OnInit {
   }
 
   onLoginClick() {
-    this.bottomSheetRef.dismiss(this.loginForm);
+    this.bottomSheetRef.dismiss({
+      status: 'login',
+      loginForm: this.loginForm
+    });
   }
 
-}
+  onRegisterClick() {
+    this.bottomSheetRef.dismiss({
+      status: 'register'
+    });
+  }
 
-interface LoginForm {
-  mobile: string;
-  password: string;
 }

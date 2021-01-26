@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Teacher Portal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-sharp"></ion-icon>
+      </ion-button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_box</mat-icon>
+          <span>Nizam</span>
+        </button>
+        <a mat-menu-item [routerLink]="'/home'">
+          <mat-icon>home</mat-icon>
+          <span>Dashboard</span>
+        </a>
+      </mat-menu>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card button="true" class="m0px">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/home-work.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-text>Home work</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card button="true" class="m0px">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/class-work.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-text>Class work</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card button="true" class="m0px">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/assignment.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-text>Assignment</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card button="true" class="m0px">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/class-test.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-text>Class Test</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

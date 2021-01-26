@@ -1,9 +1,9 @@
-import { TeacherLoginComponent } from './../shared/teacher-login/teacher-login.component';
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Plugins } from '@capacitor/core';
-import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Plugins } from '@capacitor/core';
+import { AlertController, Platform } from '@ionic/angular';
+import { TeacherLoginComponent } from './../shared/teacher-login/teacher-login.component';
 const { App } = Plugins;
 
 @Component({
@@ -16,8 +16,13 @@ export class HomePage {
   constructor(
     public alertController: AlertController,
     private bottomSheet: MatBottomSheet,
-    public router: Router
-    ) { }
+    public router: Router,
+    private platform: Platform
+  ) {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      this.onExitClick();
+    });
+  }
 
   onExitClick() {
     this.alertController.create({
@@ -45,15 +50,22 @@ export class HomePage {
 
   onTeacherPortalClick() {
     this.bottomSheet.open(TeacherLoginComponent)
-      .afterDismissed().subscribe((loginForm) => {
-        // console.log(loginForm);
+      .afterDismissed().subscribe((data) => {
+        if(data.status === 'login'){
+          // console.log(data.loginForm);
+          this.router.navigate(['teacher-portal']);
+        } else if(data.status === 'register'){
+          // call register form
+        } else if (data.status === 'back'){
+
+        }
       });
   }
 
   onSchoolPortalClick() {
     this.alertController.create({
       header: 'Coming Soon!',
-      message: 'School Portal feature is under processing...',
+      message: 'School Portal feature is under beta testing...',
       buttons: ['Okay']
     }).then((res) => {
       res.present();

@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
 @Component({
-  selector: 'app-student-portal',
-  templateUrl: './student-portal.page.html',
-  styleUrls: ['./student-portal.page.scss'],
+  selector: 'app-teacher-portal',
+  templateUrl: './teacher-portal.page.html',
+  styleUrls: ['./teacher-portal.page.scss'],
 })
-export class StudentPortalPage implements OnInit {
+export class TeacherPortalPage implements OnInit {
 
   constructor(
     private location: Location,

@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button icon="arrow-back-outline" defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center" size="large">Student Portal</ion-title>
+    <ion-title class="ion-text-center">Student Portal</ion-title>
     <ion-buttons slot="end">
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+      <ion-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-sharp"></ion-icon>
+      </ion-button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>account_box</mat-icon>
@@ -22,6 +22,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let _ of [0,1,2,3,4,5,6,7,8,9,10,11]">
+        <ion-card button="true" class="m0px">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/roman/' + (_ + 1) + '.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-text>{{(_ + 1) + ' Grade'}}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

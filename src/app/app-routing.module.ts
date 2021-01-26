@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./student-portal/student-portal.module').then( m => m.StudentPortalPageModule)
   },
   {
+    path: 'teacher-portal',
+    loadChildren: () => import('./teacher-portal/teacher-portal.module').then( m => m.TeacherPortalPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
