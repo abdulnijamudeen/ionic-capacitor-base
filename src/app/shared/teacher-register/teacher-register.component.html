@@ -5,7 +5,7 @@
                 <ion-thumbnail slot="start">
                     <img [src]="'assets/image/teacher.png'">
                 </ion-thumbnail>
-                <h2>Teacher Login</h2>
+                <h2>Teacher Registration</h2>
             </ion-item>
         </ion-col>
     </ion-row>
@@ -14,14 +14,13 @@
             <ion-list>
                 <ion-item class="ion-margin-vertical">
                     <ion-label position="floating">Mobile Number</ion-label>
-                    <ion-input type="number" [(ngModel)]="loginForm.mobile" name="mobile"></ion-input>
+                    <ion-input type="number" [(ngModel)]="registerForm.mobile" name="mobile"></ion-input>
                 </ion-item>
                 <ion-item class="ion-margin-vertical">
                     <ion-label position="floating">Password</ion-label>
-                    <ion-input type="password" [(ngModel)]="loginForm.password" name="password"></ion-input>
+                    <ion-input type="password" [(ngModel)]="registerForm.password" name="password"></ion-input>
                 </ion-item>
-                <ion-button class="ion-margin-vertical" expand="block" color="primary" (click)="onLoginClick()">Login</ion-button>
-                <ion-button class="ion-margin-vertical" expand="block" color="danger" (click)="onRegisterClick()">Registration</ion-button>
+                <ion-button class="ion-margin-vertical" expand="block" color="danger" (click)="onRegisterClick()">Register</ion-button>
             </ion-list>
         </ion-col>
     </ion-row>

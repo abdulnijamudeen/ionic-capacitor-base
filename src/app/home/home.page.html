@@ -1,24 +1,20 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="light">
+    <ion-avatar slot="start">
+      <img [src]="'assets/image/graduation-cap.png'">
+    </ion-avatar>
     <ion-title class="ion-text-center">School Panel</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="settings-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="light">
 
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card button="true" class="m0px" (click)="onSchoolPortalClick()">
-          <ion-card-header>
-            <ion-img [src]="'assets/image/graduation-cap.png'"></ion-img>
-          </ion-card-header>
-          <ion-card-content class="ion-text-center">
-            <h3>School Portal <ion-badge color="danger">Coming soon</ion-badge></h3>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col size="6">
         <ion-card button="true" class="m0px" (click)="onStudentPortalClick()">
@@ -41,6 +37,18 @@
         </ion-card>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card button="true" class="m0px" (click)="onSchoolPortalClick()">
+          <ion-card-header>
+            <ion-img [src]="'assets/image/graduation-cap.png'"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <h3>School Portal <ion-badge color="danger">Coming soon</ion-badge></h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
@@ -54,4 +62,5 @@
       <ion-icon name="arrow-forward-sharp"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  
 </ion-content>

@@ -1,8 +1,12 @@
+import { RegisterForm } from './../model/RegisterForm';
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, Platform, ToastController } from '@ionic/angular';
+import { BottomSheetData } from '../model/BottomSheetData';
+import { LoginForm } from '../model/LoginForm';
+import { TeacherRegisterComponent } from '../shared/teacher-register/teacher-register.component';
 import { TeacherLoginComponent } from './../shared/teacher-login/teacher-login.component';
 const { App } = Plugins;
 
@@ -17,9 +21,10 @@ export class HomePage {
     public alertController: AlertController,
     private bottomSheet: MatBottomSheet,
     public router: Router,
-    private platform: Platform
+    private platform: Platform,
+    public toastController: ToastController
   ) {
-    this.platform.backButton.subscribeWithPriority(-1, () => {
+    this.platform.backButton.subscribeWithPriority(10, () => {
       this.onExitClick();
     });
   }
@@ -50,13 +55,13 @@ export class HomePage {
 
   onTeacherPortalClick() {
     this.bottomSheet.open(TeacherLoginComponent)
-      .afterDismissed().subscribe((data) => {
-        if(data.status === 'login'){
-          // console.log(data.loginForm);
+      .afterDismissed().subscribe((result: BottomSheetData<LoginForm>) => {
+        if (result.status === 'login') {
+          this.teacherLogin(result.data);
           this.router.navigate(['teacher-portal']);
-        } else if(data.status === 'register'){
-          // call register form
-        } else if (data.status === 'back'){
+        } else if (result.status === 'register') {
+          this.teacherRegistrationForm();
+        } else if (result.status === 'back') {
 
         }
       });
@@ -74,5 +79,40 @@ export class HomePage {
 
   onStudentPortalClick() {
     this.router.navigate(['student-portal']);
+  }
+
+  teacherRegistrationForm = () => {
+    this.bottomSheet.open(TeacherRegisterComponent)
+      .afterDismissed().subscribe((result: BottomSheetData<RegisterForm>) => {
+        if (result.status === 'signup') {
+          this.teacherRegistration(result.data);
+        } else if (result.status === 'back') {
+
+        }
+      });
+  }
+
+  teacherRegistration = (registerForm: RegisterForm) => {
+    this.toastController.create({
+      header: 'Registration',
+      message: 'Your registration has been completed successfuly.',
+      duration: 2000,
+      position: 'top',
+      color: 'success'
+    }).then((toast) => {
+      toast.present();
+    });
+  }
+
+  teacherLogin = (loginForm: LoginForm) => {
+    this.toastController.create({
+      header: 'Login',
+      message: 'Your login has been completed successfuly.',
+      duration: 2000,
+      position: 'top',
+      color: 'success'
+    }).then((toast) => {
+      toast.present();
+    });
   }
 }

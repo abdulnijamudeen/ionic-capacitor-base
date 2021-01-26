@@ -12,9 +12,14 @@ import { MaterialUiModule } from './shared/material-ui/material-ui.module';
 import { TeacherLoginComponent } from './shared/teacher-login/teacher-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { TeacherRegisterComponent } from './shared/teacher-register/teacher-register.component';
 
 @NgModule({
-  declarations: [AppComponent, TeacherLoginComponent],
+  declarations: [
+    AppComponent,
+    TeacherLoginComponent,
+    TeacherRegisterComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,

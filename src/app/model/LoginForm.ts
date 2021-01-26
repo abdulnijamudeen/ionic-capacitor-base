@@ -1,5 +1,4 @@
 export interface LoginForm {
-    mobile: string;
-    password: string;
-  }
-  
+  mobile: string;
+  password: string;
+}

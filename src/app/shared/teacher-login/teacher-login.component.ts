@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Platform } from '@ionic/angular';
+import { BottomSheetData } from 'src/app/model/BottomSheetData';
 import { LoginForm } from 'src/app/model/LoginForm';
 
 @Component({
@@ -17,7 +18,7 @@ export class TeacherLoginComponent implements OnInit {
     private platform: Platform
     ) { 
       this.platform.backButton.subscribeWithPriority(10, () => {
-        this.bottomSheetRef.dismiss({
+        this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
           status: 'back',
         });
       });
@@ -27,14 +28,14 @@ export class TeacherLoginComponent implements OnInit {
   }
 
   onLoginClick() {
-    this.bottomSheetRef.dismiss({
+    this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
       status: 'login',
-      loginForm: this.loginForm
+      data: this.loginForm
     });
   }
 
   onRegisterClick() {
-    this.bottomSheetRef.dismiss({
+    this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
       status: 'register'
     });
   }
