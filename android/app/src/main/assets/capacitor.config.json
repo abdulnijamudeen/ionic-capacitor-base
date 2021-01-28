@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "ionic-capacitor-base",
+  "appId": "com.nizam.developer",
+  "appName": "School Panel",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
