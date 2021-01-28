@@ -54,7 +54,7 @@ export class HomePage {
   }
 
   onTeacherPortalClick() {
-    this.bottomSheet.open(TeacherLoginComponent)
+    /* this.bottomSheet.open(TeacherLoginComponent)
       .afterDismissed().subscribe((result: BottomSheetData<LoginForm>) => {
         if (result.status === 'login') {
           this.teacherLogin(result.data);
@@ -64,7 +64,9 @@ export class HomePage {
         } else if (result.status === 'back') {
 
         }
-      });
+      }); */
+      // TODO: Remove below line
+      this.router.navigate(['teacher-portal']);
   }
 
   onSchoolPortalClick() {

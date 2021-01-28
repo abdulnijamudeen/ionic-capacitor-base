@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+            <ion-back-button icon="arrow-back-outline" defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Home work</ion-title>
+        <ion-buttons slot="end">
+            <ion-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <ion-icon slot="icon-only" name="ellipsis-vertical-sharp"></ion-icon>
+            </ion-button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_box</mat-icon>
+                    <span>Nizam</span>
+                </button>
+                <a mat-menu-item [routerLink]="'/home'">
+                    <mat-icon>home</mat-icon>
+                    <span>Dashboard</span>
+                </a>
+                <button mat-menu-item>
+                    <mat-icon>directions_run</mat-icon>
+                    <span>Log out</span>
+                </button>
+            </mat-menu>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Recent Home works</ion-label>
+        </ion-list-header>
+        <ion-list-header>
+            <ion-label>Slide list for more option</ion-label>
+        </ion-list-header>
+        <ion-item-sliding>
+            <ion-item-options side="start">
+                <ion-item-option color="primary">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </ion-item-option>
+            </ion-item-options>
+            <ion-item>
+                <ion-label>
+                    <ion-text>Solar System</ion-text>
+                </ion-label>
+                <ion-note slot="end">
+                    <ion-text>{{ today | date:'medium' }}</ion-text>
+                </ion-note>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option color="danger">
+                    <span class="material-icons">
+                        delete_forever
+                    </span>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+            <ion-item-options side="start">
+                <ion-item-option color="primary">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </ion-item-option>
+            </ion-item-options>
+            <ion-item>
+                <ion-label>
+                    <ion-text>Laplace transform</ion-text>
+                </ion-label>
+                <ion-note slot="end">
+                    <ion-text>{{ today | date:'medium' }}</ion-text>
+                </ion-note>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option color="danger">
+                    <span class="material-icons">
+                        delete_forever
+                    </span>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger">
+            <ion-icon name="add-sharp"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

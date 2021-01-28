@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { TeacherPortalPageRoutingModule } from './teacher-portal-routing.module';
 
 import { TeacherPortalPage } from './teacher-portal.page';
+import { HomeWorkComponent } from './home-work/home-work.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import { TeacherPortalPage } from './teacher-portal.page';
     TeacherPortalPageRoutingModule,
     MaterialUiModule
   ],
-  declarations: [TeacherPortalPage]
+  declarations: [
+    TeacherPortalPage,
+    HomeWorkComponent
+  ]
 })
-export class TeacherPortalPageModule {}
+export class TeacherPortalPageModule { }
