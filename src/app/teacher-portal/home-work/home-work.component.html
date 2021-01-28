@@ -31,7 +31,7 @@
         <ion-list-header>
             <ion-label class="f-bold">Recent Home works (Slide list for more option)</ion-label>
         </ion-list-header>
-        <ion-item-sliding *ngFor="let _ of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">
+        <ion-item-sliding *ngFor="let item of homeWorks">
             <ion-item-options side="start">
                 <ion-item-option color="primary">
                     <span class="material-icons">edit</span>
@@ -39,15 +39,15 @@
             </ion-item-options>
             <ion-item>
                 <div>
-                    <ion-label class="f-bold">Solar System</ion-label>
-                    <ion-text class="f-italic">Write a paragraph about solar system...</ion-text>
+                    <ion-label class="f-bold">{{item.title}}</ion-label>
+                    <ion-text class="f-italic">{{item.description}}</ion-text>
                 </div>
                 <ion-note slot="end" class="ml1em">
                     <ion-label>
-                        <ion-badge color="success" class="mr1em">1 Grade</ion-badge>
-                        <ion-badge color="primary">Science</ion-badge>
+                        <ion-badge color="success" class="mr1em">{{item.grade}} Grade</ion-badge>
+                        <ion-badge color="primary">{{item.subject}}</ion-badge>
                     </ion-label>
-                    <ion-text>{{ today | date:'medium' }}</ion-text>
+                    <ion-text>{{ item.date | date:'medium' }}</ion-text>
                 </ion-note>
             </ion-item>
             <ion-item-options side="end">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeWork } from 'src/app/model/HomeWork';
+import { HomeWorkService } from 'src/app/service/home-work.service';
 
 @Component({
   selector: 'app-home-work',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-work.component.css']
 })
 export class HomeWorkComponent implements OnInit {
-  today = Date.now();
-  constructor() { }
+
+  homeWorks: Array<HomeWork> = [];
+
+  constructor(private homeWorkService: HomeWorkService) {
+    this.homeWorks = this.homeWorkService.getAll();
+  }
 
   ngOnInit(): void {
   }
