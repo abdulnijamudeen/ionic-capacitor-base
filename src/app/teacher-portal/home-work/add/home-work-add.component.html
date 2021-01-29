@@ -33,28 +33,28 @@
         </ion-list-header>
         <ion-item>
             <ion-label position="floating">Title</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="homeWorkForm.title" name="title"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Description</ion-label>
-            <ion-textarea autoGrow="true"></ion-textarea>
+            <ion-textarea [(ngModel)]="homeWorkForm.description" name="description" autoGrow="true"></ion-textarea>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Date</ion-label>
-            <ion-datetime displayFormat="DDDD MMM D, YYYY" max="2200"></ion-datetime>
+            <ion-datetime [(ngModel)]="homeWorkForm.date" name="date" displayFormat="DDDD MMM D, YYYY" max="2200"></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-label>Grade</ion-label>
-            <ion-select placeholder="Select Grade">
+            <ion-select [(ngModel)]="homeWorkForm.grade" name="grade" placeholder="Select Grade">
                 <ion-select-option [value]="g" *ngFor="let g of [1,2,3,4,5,6,7,8,9,10,11,12]">{{g}}</ion-select-option>
             </ion-select>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Subject</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="homeWorkForm.subject" name="subject"></ion-input>
         </ion-item>
         <div class="ion-text-center ion-margin-vertical">
-            <ion-button color="danger">Save</ion-button>
+            <ion-button color="danger" (click)="onSaveClick()">Save</ion-button>
         </div>
     </ion-list>
 
