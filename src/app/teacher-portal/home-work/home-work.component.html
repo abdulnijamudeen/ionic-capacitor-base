@@ -40,14 +40,12 @@
             <ion-item>
                 <div>
                     <ion-label class="f-bold">{{item.title}}</ion-label>
-                    <ion-text class="f-italic">{{item.description}}</ion-text>
+                    <ion-text class="f-italic">{{item.description.substring(0,75)}}</ion-text>
                 </div>
-                <ion-note slot="end" class="ml1em">
-                    <ion-label>
-                        <ion-badge color="success" class="mr1em">{{item.grade}} Grade</ion-badge>
-                        <ion-badge color="primary">{{item.subject}}</ion-badge>
-                    </ion-label>
-                    <ion-text>{{ item.date | date:'medium' }}</ion-text>
+                <ion-note slot="end" class="ml1em ion-text-right">
+                    <ion-label><ion-badge color="success">{{item.grade}} Grade</ion-badge></ion-label>
+                    <ion-label><ion-badge color="primary">{{item.subject}}</ion-badge></ion-label>
+                    <ion-text>{{ item.date | date:'dd-MM-yyy, h:mm a' }}</ion-text>
                 </ion-note>
             </ion-item>
             <ion-item-options side="end">

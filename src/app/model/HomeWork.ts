@@ -4,5 +4,5 @@ export interface HomeWork {
     description: string;
     subject: string;
     grade: number;
-    date: Date;
+    date: string;
 }

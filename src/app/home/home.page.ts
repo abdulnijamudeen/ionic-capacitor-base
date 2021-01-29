@@ -42,9 +42,7 @@ export class HomePage {
         },
         {
           text: 'No',
-          handler: () => {
-            // console.log('I care about humanity');
-          }
+          handler: () => { }
         }
       ]
     }).then((res) => {
