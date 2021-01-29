@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { HomeWork } from 'src/app/model/HomeWork';
 import { HomeWorkService } from 'src/app/service/home-work.service';
@@ -12,11 +14,45 @@ export class HomeWorkComponent implements OnInit {
 
   homeWorks$: BehaviorSubject<HomeWork[]>;
 
-  constructor(private homeWorkService: HomeWorkService) {
+  constructor(
+    private homeWorkService: HomeWorkService,
+    public alertController: AlertController,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.homeWorks$ = this.homeWorkService.homeWorks;
   }
 
   ngOnInit(): void {
+  }
+
+  onDeleteClick = (homeWork: HomeWork) => {
+    this.alertController.create({
+      header: 'Are you sure..?',
+      message: 'Do you wish to delete.',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => { this.homeWorkService.delete(homeWork.id); }
+        },
+        {
+          text: 'No',
+          handler: () => { }
+        }
+      ]
+    }).then((res) => {
+      res.present();
+    });
+
+  }
+
+  onEditClick = (homeWork: HomeWork) => {
+    this.router.navigate(['../', 'home-work-add'], {
+      relativeTo: this.route,
+      queryParams: {
+        id: homeWork.id
+      }
+    });
   }
 
 }

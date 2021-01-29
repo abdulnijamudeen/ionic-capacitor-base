@@ -33,7 +33,7 @@
         </ion-list-header>
         <ion-item-sliding *ngFor="let item of homeWorks$ | async">
             <ion-item-options side="start">
-                <ion-item-option color="primary">
+                <ion-item-option color="primary" (click)="onEditClick(item)">
                     <span class="material-icons">edit</span>
                 </ion-item-option>
             </ion-item-options>
@@ -51,7 +51,7 @@
                 </ion-note>
             </ion-item>
             <ion-item-options side="end">
-                <ion-item-option color="danger">
+                <ion-item-option color="danger" (click)="onDeleteClick(item)">
                     <span class="material-icons">delete_forever</span>
                 </ion-item-option>
             </ion-item-options>

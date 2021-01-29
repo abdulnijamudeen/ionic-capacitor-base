@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HomeWork } from 'src/app/model/HomeWork';
 import { HomeWorkService } from 'src/app/service/home-work.service';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-home-work-add',
@@ -20,22 +19,19 @@ export class HomeWorkAddComponent implements OnInit {
     subject: ''
   } as HomeWork;
 
-  homeWorks: Array<HomeWork> = [];
-
   constructor(
     private homeWorkService: HomeWorkService,
     private location: Location
-    ) {
-    this.homeWorkService.homeWorks.subscribe((data) => { this.homeWorks = data; });
-  }
+  ) { }
 
   ngOnInit(): void {
   }
 
   onSaveClick = () => {
-    this.homeWorkForm.id = new Date().getTime();
-    this.homeWorks = [...this.homeWorks, this.homeWorkForm];
-    this.homeWorkService.update(this.homeWorks);
+    if (this.homeWorkForm.id === 0) {
+      this.homeWorkForm.id = new Date().getTime();
+    }
+    this.homeWorkService.update(this.homeWorkForm);
     this.backClicked();
   }
 

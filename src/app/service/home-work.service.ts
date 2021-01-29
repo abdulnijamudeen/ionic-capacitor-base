@@ -30,8 +30,18 @@ export class HomeWorkService {
 
   constructor() { }
 
-  update(homeWorks: HomeWork[]): void {
-    this.homeWorks.next(homeWorks);
+  update(homeWork: HomeWork): void {
+    if (this.homeWorks.value.some(x => x.id === homeWork.id)) {
+      const newArray = [...this.homeWorks.value.filter(x => x.id !== homeWork.id), homeWork];
+      this.homeWorks.next([...newArray]);
+    } else {
+      this.homeWorks.next([...this.homeWorks.value, homeWork]);
+    }
+  }
+
+  delete = (id: number) => {
+    const newArray = [...this.homeWorks.value.filter(x => x.id !== id)];
+    this.homeWorks.next([...newArray]);
   }
 
 }
