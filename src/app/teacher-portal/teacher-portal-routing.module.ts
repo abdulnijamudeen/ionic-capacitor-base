@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeWorkAddComponent } from './home-work/add/home-work-add.component';
 import { HomeWorkComponent } from './home-work/home-work.component';
-
 import { TeacherPortalPage } from './teacher-portal.page';
+
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'home-work',
     component: HomeWorkComponent
+  },
+  {
+    path: 'home-work-add',
+    component: HomeWorkAddComponent
   }
 ];
 

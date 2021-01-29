@@ -9,6 +9,7 @@ import { TeacherPortalPageRoutingModule } from './teacher-portal-routing.module'
 
 import { TeacherPortalPage } from './teacher-portal.page';
 import { HomeWorkComponent } from './home-work/home-work.component';
+import { HomeWorkAddComponent } from './home-work/add/home-work-add.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { HomeWorkComponent } from './home-work/home-work.component';
   ],
   declarations: [
     TeacherPortalPage,
-    HomeWorkComponent
+    HomeWorkComponent,
+    HomeWorkAddComponent
   ]
 })
 export class TeacherPortalPageModule { }

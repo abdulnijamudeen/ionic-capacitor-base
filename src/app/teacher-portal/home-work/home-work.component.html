@@ -11,7 +11,7 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                     <mat-icon>account_box</mat-icon>
-                    <span>Nizam</span>
+                    <span>Demo User</span>
                 </button>
                 <a mat-menu-item [routerLink]="'/home'">
                     <mat-icon>home</mat-icon>
@@ -28,10 +28,10 @@
 
 <ion-content>
     <ion-list>
-        <ion-list-header>
+        <ion-list-header class="ion-text-center">
             <ion-label class="f-bold">Recent Home works (Slide list for more option)</ion-label>
         </ion-list-header>
-        <ion-item-sliding *ngFor="let item of homeWorks">
+        <ion-item-sliding *ngFor="let item of homeWorks$ | async">
             <ion-item-options side="start">
                 <ion-item-option color="primary">
                     <span class="material-icons">edit</span>
@@ -59,7 +59,7 @@
     </ion-list>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button color="danger">
+        <ion-fab-button color="danger" [routerLink]="['../','home-work-add']">
             <ion-icon name="add-sharp"></ion-icon>
         </ion-fab-button>
     </ion-fab>

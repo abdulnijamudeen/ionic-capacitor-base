@@ -16,11 +16,11 @@ export class TeacherLoginComponent implements OnInit {
   constructor(
     private bottomSheetRef: MatBottomSheetRef<TeacherLoginComponent>,
     private platform: Platform
-    ) { 
+    ) {
       this.platform.backButton.subscribeWithPriority(10, () => {
-        this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
+        this.bottomSheetRef.dismiss({
           status: 'back',
-        });
+        } as BottomSheetData<LoginForm>);
       });
     }
 
@@ -28,16 +28,16 @@ export class TeacherLoginComponent implements OnInit {
   }
 
   onLoginClick() {
-    this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
+    this.bottomSheetRef.dismiss( {
       status: 'login',
       data: this.loginForm
-    });
+    } as BottomSheetData<LoginForm>);
   }
 
   onRegisterClick() {
-    this.bottomSheetRef.dismiss(<BottomSheetData<LoginForm>>{
+    this.bottomSheetRef.dismiss( {
       status: 'register'
-    });
+    } as BottomSheetData<LoginForm>);
   }
 
 }

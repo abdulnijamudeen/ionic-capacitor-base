@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+            <ion-back-button icon="arrow-back-outline" defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Home work</ion-title>
+        <ion-buttons slot="end">
+            <ion-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <ion-icon slot="icon-only" name="ellipsis-vertical-sharp"></ion-icon>
+            </ion-button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_box</mat-icon>
+                    <span>Demo User</span>
+                </button>
+                <a mat-menu-item [routerLink]="'/home'">
+                    <mat-icon>home</mat-icon>
+                    <span>Dashboard</span>
+                </a>
+                <button mat-menu-item>
+                    <mat-icon>directions_run</mat-icon>
+                    <span>Log out</span>
+                </button>
+            </mat-menu>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header class="ion-text-center">
+            <ion-label class="f-bold">Create or update home work</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea autoGrow="true"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Date</ion-label>
+            <ion-datetime displayFormat="DDDD MMM D, YYYY" max="2200"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Grade</ion-label>
+            <ion-select placeholder="Select Grade">
+                <ion-select-option [value]="g" *ngFor="let g of [1,2,3,4,5,6,7,8,9,10,11,12]">{{g}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Subject</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <div class="ion-text-center ion-margin-vertical">
+            <ion-button color="danger">Save</ion-button>
+        </div>
+    </ion-list>
+
+
+</ion-content>
