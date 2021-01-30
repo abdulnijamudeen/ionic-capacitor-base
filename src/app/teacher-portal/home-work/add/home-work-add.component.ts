@@ -30,9 +30,7 @@ export class HomeWorkAddComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(params => {
       const id = Number(params.id);
-      if (id) {
-        this.homeWorkForm = this.homeWorkService.getById(id);
-      }
+      if (id) { this.homeWorkForm = this.homeWorkService.getById(id); }
     });
   }
 

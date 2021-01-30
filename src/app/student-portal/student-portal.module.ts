@@ -8,6 +8,8 @@ import { StudentPortalPageRoutingModule } from './student-portal-routing.module'
 
 import { StudentPortalPage } from './student-portal.page';
 import { MaterialUiModule } from '../shared/material-ui/material-ui.module';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StudentHomeWorkComponent } from './student-home-work/student-home-work.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,10 @@ import { MaterialUiModule } from '../shared/material-ui/material-ui.module';
     StudentPortalPageRoutingModule,
     MaterialUiModule
   ],
-  declarations: [StudentPortalPage]
+  declarations: [
+    StudentPortalPage,
+    StudentDashboardComponent,
+    StudentHomeWorkComponent
+  ]
 })
 export class StudentPortalPageModule {}

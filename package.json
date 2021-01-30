@@ -4,14 +4,15 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
+    "ionic": "ionic serve",
+    "capacitorRunAndroidStudio": "ionic capacitor run android",
+    "capacitorLiveAndroidStudio": "ionic cap run android -l --external",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "capacitorRunAndroidStudio": "ionic capacitor run android",
-    "capacitorLiveAndroidStudio": "ionic cap run android -l --external"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button icon="arrow-back-outline" defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Home work</ion-title>
+        <ion-buttons slot="end">
+            <ion-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <ion-icon slot="icon-only" name="ellipsis-vertical-sharp"></ion-icon>
+            </ion-button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_box</mat-icon>
+                    <span>Public User</span>
+                </button>
+                <a mat-menu-item [routerLink]="'/home'">
+                    <mat-icon>home</mat-icon>
+                    <span>Dashboard</span>
+                </a>
+            </mat-menu>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-list-header class="ion-text-center">
+            <ion-label class="f-bold">Recent Home works</ion-label>
+        </ion-list-header>
+        <ion-list-header class="ion-text-center" *ngIf="(homeWorks$ | async).length === 0">
+            <ion-label>No record found</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let item of homeWorks$ | async">
+            <div>
+                <ion-label class="f-bold">{{item.title}}</ion-label>
+                <ion-text class="f-italic">{{item.description.substring(0,50)}}</ion-text>
+            </div>
+            <ion-note slot="end" class="ml1em ion-text-right">
+                <ion-label>
+                    <ion-badge color="success">{{item.grade}} Grade</ion-badge>
+                </ion-label>
+                <ion-label>
+                    <ion-badge color="primary">{{item.subject}}</ion-badge>
+                </ion-label>
+                <ion-text>{{ item.date | date:'dd-MM-yyy, h:mm a' }}</ion-text>
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>

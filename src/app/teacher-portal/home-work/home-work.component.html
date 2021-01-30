@@ -31,7 +31,10 @@
         <ion-list-header class="ion-text-center">
             <ion-label class="f-bold">Recent Home works (Slide list for more option)</ion-label>
         </ion-list-header>
-        <ion-item-sliding *ngFor="let item of homeWorks$ | async">
+        <ion-list-header class="ion-text-center" *ngIf="(homeWorks$ | async).length === 0">
+            <ion-label>No record found</ion-label>
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let item of homeWorks$ | async" #slidingItem>
             <ion-item-options side="start">
                 <ion-item-option color="primary" (click)="onEditClick(item)">
                     <span class="material-icons">edit</span>
@@ -40,7 +43,7 @@
             <ion-item>
                 <div>
                     <ion-label class="f-bold">{{item.title}}</ion-label>
-                    <ion-text class="f-italic">{{item.description.substring(0,75)}}</ion-text>
+                    <ion-text class="f-italic">{{item.description.substring(0,50)}}</ion-text>
                 </div>
                 <ion-note slot="end" class="ml1em ion-text-right">
                     <ion-label><ion-badge color="success">{{item.grade}} Grade</ion-badge></ion-label>

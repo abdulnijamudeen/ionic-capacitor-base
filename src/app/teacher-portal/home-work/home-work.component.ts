@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonItemSliding } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { HomeWork } from 'src/app/model/HomeWork';
 import { HomeWorkService } from 'src/app/service/home-work.service';
@@ -13,6 +13,8 @@ import { HomeWorkService } from 'src/app/service/home-work.service';
 export class HomeWorkComponent implements OnInit {
 
   homeWorks$: BehaviorSubject<HomeWork[]>;
+
+  @ViewChild('slidingItem') slidingItem: IonItemSliding;
 
   constructor(
     private homeWorkService: HomeWorkService,
@@ -27,6 +29,7 @@ export class HomeWorkComponent implements OnInit {
   }
 
   onDeleteClick = (homeWork: HomeWork) => {
+    this.closeAllOpenSliding();
     this.alertController.create({
       header: 'Are you sure..?',
       message: 'Do you wish to delete.',
@@ -47,6 +50,7 @@ export class HomeWorkComponent implements OnInit {
   }
 
   onEditClick = (homeWork: HomeWork) => {
+    this.closeAllOpenSliding();
     this.router.navigate(['../', 'home-work-add'], {
       relativeTo: this.route,
       queryParams: {
@@ -54,5 +58,7 @@ export class HomeWorkComponent implements OnInit {
       }
     });
   }
+
+  closeAllOpenSliding = () => this.slidingItem.closeOpened();
 
 }
