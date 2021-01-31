@@ -10,6 +10,7 @@ import { TeacherPortalPageRoutingModule } from './teacher-portal-routing.module'
 import { TeacherPortalPage } from './teacher-portal.page';
 import { HomeWorkComponent } from './home-work/home-work.component';
 import { HomeWorkAddComponent } from './home-work/add/home-work-add.component';
+import { HomeWorkViewComponent } from './home-work/view/home-work-view.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { HomeWorkAddComponent } from './home-work/add/home-work-add.component';
   declarations: [
     TeacherPortalPage,
     HomeWorkComponent,
-    HomeWorkAddComponent
+    HomeWorkAddComponent,
+    HomeWorkViewComponent
   ]
 })
 export class TeacherPortalPageModule { }

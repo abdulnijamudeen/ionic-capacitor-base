@@ -7,7 +7,7 @@ const homeWorksInitData: Array<HomeWork> = [
   {
     id: 1,
     title: 'Solar System',
-    description: 'description',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in vestibulum ante, non malesuada elit. Aliquam pharetra nunc quis erat cursus convallis. Aliquam id tortor sapien. Aenean accumsan varius ante quis imperdiet. Nullam non lacus a turpis lobortis dictum. Suspendisse aliquet est ut maximus sodales. Integer laoreet eleifend metus ut.',
     date: new Date().toISOString(),
     grade: 1,
     subject: 'Science'

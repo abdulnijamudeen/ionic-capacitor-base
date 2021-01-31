@@ -59,6 +59,10 @@ export class HomeWorkComponent implements OnInit {
     });
   }
 
+  onHomeWorkClick = (homeWork: HomeWork) => {
+    this.router.navigate(['../', 'home-work-view'], { relativeTo: this.route, queryParams: { id: homeWork.id } });
+  }
+
   closeAllOpenSliding = () => this.slidingItem.closeOpened();
 
 }

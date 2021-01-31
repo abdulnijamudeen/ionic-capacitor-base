@@ -34,7 +34,7 @@
         <ion-list-header class="ion-text-center" *ngIf="(homeWorks$ | async).length === 0">
             <ion-label>No record found</ion-label>
         </ion-list-header>
-        <ion-item-sliding *ngFor="let item of homeWorks$ | async" #slidingItem>
+        <ion-item-sliding *ngFor="let item of homeWorks$ | async" #slidingItem (click)="onHomeWorkClick(item)">
             <ion-item-options side="start">
                 <ion-item-option color="primary" (click)="onEditClick(item)">
                     <span class="material-icons">edit</span>
