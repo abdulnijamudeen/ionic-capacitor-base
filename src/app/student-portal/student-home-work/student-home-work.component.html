@@ -31,7 +31,7 @@
         <ion-list-header class="ion-text-center" *ngIf="(homeWorks$ | async).length === 0">
             <ion-label>No record found</ion-label>
         </ion-list-header>
-        <ion-item *ngFor="let item of homeWorks$ | async">
+        <ion-item *ngFor="let item of homeWorks$ | async" (click)="onHomeWorkClick(item)">
             <div>
                 <ion-label class="f-bold">{{item.title}}</ion-label>
                 <ion-text class="f-italic">{{item.description.substring(0,50)}}</ion-text>

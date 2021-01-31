@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HomeWork } from 'src/app/model/HomeWork';
 import { HomeWorkService } from 'src/app/service/home-work.service';
 
@@ -30,6 +30,10 @@ export class StudentHomeWorkComponent implements OnInit {
 
   getHomeWorkByGrade = (grade: number) => {
     this.homeWorks$ = this.homeWorkService.getByGrade(grade);
+  }
+
+  onHomeWorkClick = (homeWork: HomeWork) => {
+    this.router.navigate(['../', 'home-work-view'], { relativeTo: this.route, queryParams: { id: homeWork.id } });
   }
 
 }

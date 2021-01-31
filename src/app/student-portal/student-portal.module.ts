@@ -10,6 +10,7 @@ import { StudentPortalPage } from './student-portal.page';
 import { MaterialUiModule } from '../shared/material-ui/material-ui.module';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { StudentHomeWorkComponent } from './student-home-work/student-home-work.component';
+import { HomeWorkViewComponent } from './student-home-work/home-work-view/home-work-view.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { StudentHomeWorkComponent } from './student-home-work/student-home-work.
   declarations: [
     StudentPortalPage,
     StudentDashboardComponent,
-    StudentHomeWorkComponent
+    StudentHomeWorkComponent,
+    HomeWorkViewComponent
   ]
 })
 export class StudentPortalPageModule {}

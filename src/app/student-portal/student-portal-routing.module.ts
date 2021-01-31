@@ -1,9 +1,10 @@
-import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { StudentPortalPage } from './student-portal.page';
+import { RouterModule, Routes } from '@angular/router';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { HomeWorkViewComponent } from './student-home-work/home-work-view/home-work-view.component';
 import { StudentHomeWorkComponent } from './student-home-work/student-home-work.component';
+import { StudentPortalPage } from './student-portal.page';
+
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'home-work',
     component: StudentHomeWorkComponent
+  },
+  {
+    path: 'home-work-view',
+    component: HomeWorkViewComponent
   }
 ];
 
@@ -24,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class StudentPortalPageRoutingModule {}
+export class StudentPortalPageRoutingModule { }
