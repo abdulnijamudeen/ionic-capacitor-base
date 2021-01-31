@@ -34,17 +34,17 @@ export class HomeWorkViewComponent implements OnInit {
     this.homeWork = this.homeWorkService.getById(id);
   }
 
-  onCopyClick = () => 
-  this.clipboard.copy(`${this.homeWork.title} (${this.homeWork.subject}) - ${this.homeWork.description}`).then((data) => {
-    this.toastController.create({
-      header: 'Copy',
-      message: 'Lesson has been copied successfuly.',
-      duration: 2000,
-      position: 'top',
-      color: 'success'
-    }).then((toast) => {
-      toast.present();
-    });
-  });
+  onCopyClick = () =>
+    this.clipboard.copy(`${this.homeWork.title} (${this.homeWork.subject}) - ${this.homeWork.description}`).then((data) => {
+      this.toastController.create({
+        header: 'Copy',
+        message: 'Lesson has been copied successfuly.',
+        duration: 2000,
+        position: 'top',
+        color: 'success'
+      }).then((toast) => {
+        toast.present();
+      });
+    })
 
 }
